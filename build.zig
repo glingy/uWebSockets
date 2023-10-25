@@ -4,7 +4,7 @@ pub fn build(b: *std.Build) !void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
-    const uSockets = b.dependencyInner("uSockets", "uSockets", @import("uSockets/build.zig"), .{});
+    const uSockets = b.dependency("uSockets", .{});
 
     const lib = b.addStaticLibrary(.{
         .name = "uWebSockets",
