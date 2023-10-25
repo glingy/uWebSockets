@@ -18,6 +18,7 @@ pub fn build(b: *std.Build) !void {
 
     lib.linkLibrary(uSockets.artifact("uSockets"));
 
+    lib.installLibraryHeaders(uSockets);
     lib.installHeader("capi/libuwebsockets.h", "libuwebsockets.h");
 
     b.installArtifact(lib);
