@@ -38,7 +38,7 @@ struct Loop;
 struct alignas(16) LoopData {
     friend struct Loop;
 private:
-    std::mutex deferMutex;
+    //std::mutex deferMutex;
     int currentDeferQueue = 0;
     std::vector<MoveOnlyFunction<void()>> deferQueues[2];
 
