@@ -31,10 +31,10 @@ private:
         LoopData *loopData = (LoopData *) us_loop_ext(loop);
 
         /* Swap current deferQueue */
-        loopData->deferMutex.lock();
+        //loopData->deferMutex.lock();
         int oldDeferQueue = loopData->currentDeferQueue;
         loopData->currentDeferQueue = (loopData->currentDeferQueue + 1) % 2;
-        loopData->deferMutex.unlock();
+        //loopData->deferMutex.unlock();
 
         /* Drain the queue */
         for (auto &x : loopData->deferQueues[oldDeferQueue]) {
@@ -170,9 +170,9 @@ public:
         LoopData *loopData = (LoopData *) us_loop_ext((us_loop_t *) this);
 
         //if (std::thread::get_id() == ) // todo: add fast path for same thread id
-        loopData->deferMutex.lock();
+        //loopData->deferMutex.lock();
         loopData->deferQueues[loopData->currentDeferQueue].emplace_back(std::move(cb));
-        loopData->deferMutex.unlock();
+        //loopData->deferMutex.unlock();
 
         us_wakeup_loop((us_loop_t *) this);
     }

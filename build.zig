@@ -5,6 +5,7 @@ pub fn build(b: *std.Build) !void {
     const optimize = b.standardOptimizeOption(.{});
 
     const uSockets = b.dependency("uSockets", .{});
+    const zlib = b.dependency("zlib", .{});
 
     const lib = b.addStaticLibrary(.{
         .name = "uWebSockets",
@@ -16,6 +17,7 @@ pub fn build(b: *std.Build) !void {
     lib.addIncludePath(.{ .path = "capi" });
     lib.addIncludePath(.{ .path = "src" });
 
+    lib.linkLibrary(zlib.artifact("z"));
     lib.linkLibrary(uSockets.artifact("uSockets"));
     lib.installLibraryHeaders(uSockets.artifact("uSockets"));
 

@@ -6,5 +6,9 @@
             .url = "https://github.com/glingy/uSockets-zig/archive/refs/heads/master.tar.gz",
             .hash = "1220ec08407fd9e9ac6d808ca8c7b885e0ef7396967ead9851a902de42658c4be65b",
         },
+        .zlib = .{
+            .url = "https://github.com/glingy/zlib-zig/archive/refs/heads/master.tar.gz",
+            .hash = "1220b1dcb93ccc62a45820cb46e18b5426aa56157366442e858c19bee892e45ac271",
+        },
     },
 }
