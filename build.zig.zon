@@ -4,7 +4,7 @@
     .dependencies = .{
         .uSockets = .{
             .url = "https://github.com/glingy/uSockets-zig/archive/refs/heads/master.tar.gz",
-            .hash = "1220df1b76b5ed9aeb8ce1709a75ef76b63bcccfbcbdf55c3688011ce2ce8de0c460",
+            .hash = "12209ed084d0f1ae4657f8f5196f6f72fa4ae61714945b219f6162cc6dacfa6032f2",
         },
     },
 }
