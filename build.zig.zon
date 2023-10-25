@@ -1,0 +1,14 @@
+.{
+    .name = "uWebSockets",
+    .version = "0.1.0",
+    .dependencies = .{
+        .uSockets = .{
+            .url = "https://github.com/glingy/uSockets-zig/archive/refs/tags/v0.8.6.tar.gz",
+            .hash = "12202bd2eb42d8d0f675070dc8be33b388f13428e1e5c2e1000ae7843c4b54e469b9",
+        },
+        .openssl = .{
+            .url = "https://github.com/glingy/openssl-zig/archive/refs/tags/3.2.0.tar.gz",
+            .hash = "1220ca81080e68055343edac34deb514dad1d10e61df46ae71aff6a241b9224b72db",
+        },
+    },
+}
