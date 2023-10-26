@@ -27,6 +27,7 @@ pub fn build(b: *std.Build) !void {
 
     if (single_threaded == true) {
         lib.defineCMacro("UWS_HAS_NO_THREADS", null);
+        lib.defineCMacro("thread_local", null); // Remove thread_local keywords
     }
 
     lib.addIncludePath(.{ .path = "capi" });
