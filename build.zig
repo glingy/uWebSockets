@@ -4,8 +4,15 @@ pub fn build(b: *std.Build) !void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
-    const uSockets = b.dependency("uSockets", .{});
-    const zlib = b.dependency("zlib", .{});
+    const uSockets = b.dependency("uSockets", .{
+        .target = target,
+        .optimize = optimize,
+    });
+
+    const zlib = b.dependency("zlib", .{
+        .target = target,
+        .optimize = optimize,
+    });
 
     const lib = b.addStaticLibrary(.{
         .name = "uWebSockets",
