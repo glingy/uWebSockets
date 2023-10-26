@@ -18,10 +18,11 @@
 #ifndef UWS_LOOPDATA_H
 #define UWS_LOOPDATA_H
 
-#include <thread>
 #include <functional>
 #include <vector>
+#ifndef UWS_HAS_NO_THREADS
 #include <mutex>
+#endif
 #include <map>
 #include <ctime>
 #include <cstdint>
@@ -38,7 +39,9 @@ struct Loop;
 struct alignas(16) LoopData {
     friend struct Loop;
 private:
-    //std::mutex deferMutex;
+#ifndef UWS_HAS_NO_THREADS
+    std::mutex deferMutex;
+#endif
     int currentDeferQueue = 0;
     std::vector<MoveOnlyFunction<void()>> deferQueues[2];
 

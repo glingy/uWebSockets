@@ -25,6 +25,10 @@ pub fn build(b: *std.Build) !void {
         .root_source_file = .{ .path = "capi/libuwebsockets.cpp" },
     });
 
+    if (single_threaded == true) {
+        lib.defineCMacro("UWS_HAS_NO_THREADS", null);
+    }
+
     lib.addIncludePath(.{ .path = "capi" });
     lib.addIncludePath(.{ .path = "src" });
 

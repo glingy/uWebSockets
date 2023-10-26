@@ -170,9 +170,13 @@ public:
         LoopData *loopData = (LoopData *) us_loop_ext((us_loop_t *) this);
 
         //if (std::thread::get_id() == ) // todo: add fast path for same thread id
-        //loopData->deferMutex.lock();
+#ifndef UWS_HAS_NO_THREADS
+        loopData->deferMutex.lock();
+#endif
         loopData->deferQueues[loopData->currentDeferQueue].emplace_back(std::move(cb));
-        //loopData->deferMutex.unlock();
+#ifndef UWS_HAS_NO_THREADS
+        loopData->deferMutex.lock();
+#endif
 
         us_wakeup_loop((us_loop_t *) this);
     }
