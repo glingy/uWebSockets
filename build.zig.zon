@@ -4,11 +4,11 @@
     .dependencies = .{
         .uSockets = .{
             .url = "https://github.com/glingy/uSockets-zig/archive/refs/heads/master.tar.gz",
-            .hash = "12209fb756b8a439ddbea7549168d3091523b66555ce4f52d2529ad228dc87374b16",
+            .hash = "1220a8d1dbdf6b81812b48888ca6f2e72799e0db4133100dc38d45078912c4f2cc0c",
         },
         .zlib = .{
             .url = "https://github.com/glingy/zlib-zig/archive/refs/heads/master.tar.gz",
-            .hash = "1220b1dcb93ccc62a45820cb46e18b5426aa56157366442e858c19bee892e45ac271",
+            .hash = "122040a34eec4ee33c971f0508f274e94062a3b16c11889d541ace9f2af2ef6e67ef",
         },
     },
 }

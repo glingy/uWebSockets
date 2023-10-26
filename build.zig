@@ -3,21 +3,25 @@ const std = @import("std");
 pub fn build(b: *std.Build) !void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
+    const single_threaded = b.option(bool, "single_threaded", "Build single threaded") orelse false;
 
     const uSockets = b.dependency("uSockets", .{
         .target = target,
         .optimize = optimize,
+        .single_threaded = single_threaded,
     });
 
     const zlib = b.dependency("zlib", .{
         .target = target,
         .optimize = optimize,
+        .single_threaded = single_threaded,
     });
 
     const lib = b.addStaticLibrary(.{
         .name = "uWebSockets",
         .target = target,
         .optimize = optimize,
+        .single_threaded = single_threaded,
         .root_source_file = .{ .path = "capi/libuwebsockets.cpp" },
     });
 
